@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Data Table</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+<table id="data-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Table data will be populated here -->
+  </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#data-table').DataTable({
+      paging: true,
+      searching: true,
+      ordering: true,
+      info: true,
+      data: [
+        ['John', 30, 'USA'],
+        ['Smith', 25, 'Canada'],
+        ['Ramesh', 35, 'India'],
+        // Add more data here
+      ],
+      columns: [
+        { title: 'Name' },
+        { title: 'Age' },
+        { title: 'Country' }
+      ]
+    });
+  });
+</script>
+
+</body>
+</html>

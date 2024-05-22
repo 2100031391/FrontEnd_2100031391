@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form Builder</title>
+<style>
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div id="form-container">
+  <!-- Form will be generated here -->
+</div>
+
+<button onclick="addField('text')">Add Text Field</button>
+<button onclick="addField('checkbox')">Add Checkbox</button>
+<button onclick="addField('radio')">Add Radio Button</button>
+
+<script>let formCounter = 0;
+
+  function addField(type) {
+    formCounter++;
+    const formContainer = document.getElementById('form-container');
+    const newField = document.createElement('div');
+    newField.className = 'form-group';
+    
+    switch(type) {
+      case 'text':
+        newField.innerHTML = `<label for="field${formCounter}">Text Field:</label>
+                              <input type="text" id="field${formCounter}" name="field${formCounter}">`;
+        break;
+      case 'checkbox':
+        newField.innerHTML = `<label for="field${formCounter}">Checkbox:</label>
+                              <input type="checkbox" id="field${formCounter}" name="field${formCounter}">`;
+        break;
+      case 'radio':
+        newField.innerHTML = `<label for="field${formCounter}">Radio Button:</label>
+                              <input type="radio" id="field${formCounter}" name="field${formCounter}">`;
+        break;
+    }
+    
+    formContainer.appendChild(newField);
+  }</script>
+
+</body>
+</html>

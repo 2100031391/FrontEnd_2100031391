@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Long Words</title>
+<style>
+  .highlight {
+    background-color: yellow;
+  }
+</style>
+</head>
+<body>
+
+<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula sem et orci placerat, nec venenatis velit ultrices. Nullam eu magna eu nisi fermentum lacinia. Integer ac ultricies felis. Mauris sollicitudin massa vel eros auctor, et ultricies nibh pellentesque. Curabitur varius efficitur elit, at iaculis urna rhoncus nec. Nam vestibulum libero vitae libero consequat dignissim. Sed non semper libero.</p>
+<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula sem et orci placerat, nec venenatis velit ultrices. Nullam eu magna eu nisi fermentum lacinia. Integer ac ultricies felis. Mauris sollicitudin massa vel eros auctor, et ultricies nibh pellentesque. Curabitur varius efficitur elit, at iaculis urna rhoncus nec. Nam vestibulum libero vitae libero consequat dignissim. Sed non semper libero.</p>
+
+<script>
+const paragraph = document.getElementById('text');
+  const text = paragraph.textContent;
+  const words = text.split(/\s+/);
+  
+  words.forEach(word => {
+    if (word.length > 8) {
+      const regex = new RegExp(word, 'g');
+      paragraph.innerHTML = paragraph.innerHTML.replace(regex, `<span class="highlight">${word}</span>`);
+    }
+  });</script>
+
+</body>
+</html>
